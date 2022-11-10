@@ -1,0 +1,39 @@
+{% extends 'timetable/base.html'%}
+{% load crispy_forms_tags%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+{% block content%}
+<div class="row">
+    <div class="col-md-4"></div>
+        <div class="col-md-5 jumbotron card mt-1" >
+          <div class="row d-flex justify-content-center" >
+            <img src="" alt="" class="img-responsive bg-light text-center "
+            style="height: 100px; width: 120px; border-radius:50%;">
+          </div>
+            <h4 class="text-center">TUK SCIT TIMETABLE</h4>
+            <div class="  card-title">
+                <h5 class=" text-center m-2 p-1">LOGIN</h5>
+            </div>
+
+            <form action="" method="post">
+            {% csrf_token%}
+            {{form|crispy}}
+
+                 <button class="btn btn-success">Submit</button>
+                <div class="row m-3 text-center">
+                    <p class="text-center">Don't have an account? <a href="{% url 'register'%}">Register</a></p>
+                </div>
+            </form>     
+    </div>
+<div class="col-md-3"></div>
+
+</div>
+{% endblock content%}
+
+</body>
+</html>
