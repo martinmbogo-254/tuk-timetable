@@ -13,7 +13,7 @@
     <div class="container row py-5">
         <div class="col-md-3"></div>
         <div class="col-md-6 card jumbotron">
-            <h4 class="text-center">Register</h4>
+            <h4 class="text-center">REGISTER</h4>
             <form method="POST">
                 {% csrf_token %}
                 <div class="row">
@@ -22,17 +22,12 @@
                         {{ register_form.email|as_crispy_field}}
                     </div>
                     <div class="col-md-6">
-                        
+                            {{ register_form.role|as_crispy_field}}
                     </div>
                     
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        {{register_form.password1|as_crispy_field}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ register_form.password2|as_crispy_field}}
-                    </div>
+                    
                 </div>
                 <button class="btn btn-primary m-2 text-center" type="submit">Register</button>
                 <p class="text-center">If you already have an account, <a href="{% url 'login'%}">login</a> instead.</p>

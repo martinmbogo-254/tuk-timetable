@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import NewUserForm
 # Create your views here.
-
+# one must be logged in inorder to see this page
+@login_required(login_url='login')
 def home(request):
     return render(request,'timetable/home.html')
 # registration view
