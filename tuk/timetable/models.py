@@ -1,6 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
+class Account(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    role = models.CharField(max_length=8,
+    choices = [('Lecturer','Lecturer'),
+		('Student','Student')])
+
+    def __str__(self):
+        return self.user.username
+
 class Timetable(models.Model):
     days_choice=[
         ('Monday','Monday'),

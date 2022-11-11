@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'timetable',
     'crispy_forms',
+    # 'accounts.apps.AccountConfig'
 
 ]
 

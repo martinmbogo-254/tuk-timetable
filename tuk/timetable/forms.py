@@ -8,20 +8,22 @@ from .models import Timetable
 
 # Create your forms here.
 
-class NewUserForm(ModelForm):
+class NewUserForm(UserCreationForm):
 	role_choices=(
 		('Lecturer','Lecturer'),
 		('Student','Student')
 	)
 	email = forms.EmailField(required=True)
-	role = forms.ChoiceField(choices=role_choices)
+	role = forms.ChoiceField(choices=role_choices,required=True)
+	
 	class Meta:
 		model = User
-		fields = ('email','role')
+		fields = ('username','email','role','password1','password2')
 
-	def save(self, commit=True):
-		user = super(NewUserForm, self).save(commit=False)
-		user.email = self.cleaned_data['email']
-		if commit:
-			user.save()
-		return user
+		def save(self, commit=True):
+			user = super(NewUserForm, self).save(commit=False)
+			user.role = self.cleaned_data["role"]
+			if commit:
+				user.save()
+			return user
+		
